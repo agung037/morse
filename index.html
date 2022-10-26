@@ -39,7 +39,7 @@
 
                 </div>
                 <div class="p-2 flex-fill">
-                    <label for="text2" class="form-label">Morse Code</label>
+                    <label for="text2" class="form-label">Morse Code </label>
                     <textarea :disabled="text2Active" v-model="morseCode" style="text-transform:uppercase"
                         class="form-control" id="chiper" rows="3"></textarea>
                 </div>
@@ -49,6 +49,7 @@
             </div>
 
             <button @click="go" class="btn btn-sm btn-primary">Process</button>
+            <div id="player"></div>
 
             <footer class="py-3 my-4">
                 <hr>
@@ -56,18 +57,14 @@
                     with ❤️ using Vue 3</p>
             </footer>
         </div>
-
-
-
-
-
     </div>
 
     <!-- script for bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
 
-
+    <!-- sound api -->
+    <script src="https://fkurz.net/ham/jscwlib/src/jscwlib.js"></script>
 
 
 
@@ -82,6 +79,9 @@
                     toMorseMode: true,
                     text1Active: false,
                     text2Active: true,
+                    playing: false,
+                    playButtonText: "Play Sound"
+
                 }
             },
 
@@ -161,9 +161,10 @@
                             }
                         }
                         this.normalText = result
-
-
                     }
+                    var m = new jscw({ "wpm": 25 });
+                    m.setText(this.normalText);
+                    m.renderPlayer('player', m);
                 },
 
                 count() {
@@ -178,7 +179,9 @@
                     this.text1Active = !this.text1Active
                     this.text2Active = !this.text2Active
                     this.toMorseMode = !this.toMorseMode
-                }
+                },
+
+
             }
         }).mount('#app')
 
