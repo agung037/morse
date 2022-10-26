@@ -139,17 +139,26 @@
                         let result = ""
 
                         for (let i = 0; i < target.length; i++) {
-                            result += getKeyByValue(ref, target[i]) + " "
+                            if (!getKeyByValue(ref, target[i])) {
+                                continue
+                            } else {
+
+                                result += getKeyByValue(ref, target[i]) + " "
+                            }
                         }
 
                         this.morseCode = result
                     } else {
                         let target = this.morseCode.split(" ")
-                        console.log(target);
                         let result = ""
 
                         for (let i = 0; i < target.length; i++) {
-                            result += ref[target[i].toUpperCase()]
+                            if (!ref[target[i]]) {
+                                continue
+                            } else {
+
+                                result += ref[target[i].toUpperCase()]
+                            }
                         }
                         this.normalText = result
 
