@@ -33,6 +33,9 @@
                     <label for="text1" class="form-label">Text</label>
                     <textarea :disabled="text1Active" style="text-transform:uppercase" v-model="normalText"
                         class=" form-control" id="text1" rows="3"></textarea>
+                    <div class="p-2 flex-fill">
+                        <p>character count: {{ this.count() }}</p>
+                    </div>
                 </div>
                 <div class="p-2 align-self-center">
                     <button @click="reverse" class="btn btn-sm btn-dark"><i class="bi bi-arrow-left-right"></i></button>
@@ -45,9 +48,7 @@
                     <div id="player"></div>
                 </div>
             </div>
-            <div class="p-2 flex-fill">
-                <p>character count: {{ this.count() }}</p>
-            </div>
+
 
             <button @click="go" class="btn btn-sm btn-primary">Process</button>
 
