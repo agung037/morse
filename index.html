@@ -21,8 +21,7 @@
 
 <body>
     <!-- script for vue -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <div id="app">
 
         <div class="container">
@@ -38,7 +37,15 @@
                     </div>
                 </div>
                 <div class="p-2 align-self-center">
-                    <button @click="reverse" class="btn btn-sm btn-dark"><i class="bi bi-arrow-left-right"></i></button>
+                    <button @click="reverse" type="button" class="btn btn-outline-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z">
+                            </path>
+                        </svg>
+                    </button>
+
 
                 </div>
                 <div class="p-2 flex-fill">
@@ -50,7 +57,7 @@
             </div>
 
 
-            <button @click="go" class="btn btn-sm btn-primary">Process</button>
+            <button @click="go" class="btn btn-outline-secondary">Process</button>
 
 
             <footer class="py-3 my-4">
@@ -61,14 +68,8 @@
         </div>
     </div>
 
-    <!-- script for bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
-
     <!-- sound api -->
-    <script src="./jscwlib.js"></script>
-
-
+    <script src="./js/sound.js"></script>
 
     <script>
         const { createApp } = Vue
